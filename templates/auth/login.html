@@ -1,0 +1,39 @@
+{% extends './base.html' %}
+
+{% block title %}UNI-MRKT{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+{% endblock %}
+
+{% block body %}
+<form method="POST" action="{{ url_for('login') }}">
+  <div class="logo-contenedor">
+    <img src="static/img/UNI-Nicaragua.jpg" alt="Logo" class="Logo">
+    <h1 class="logotexto">-Markt</h1>
+  </div>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="flash">
+        {% for message in messages %}
+          <p>{{ message }}</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <div class="lr">
+    <h2>¡Inicia Sesión!</h2>
+    <input type="hidden" name="csrf_token" value ="{{ csrf_token() }}">
+
+    <p class="plogin">Correo Electrónico UNI</p>
+    <input type="text" class="tlogin" id="correo" name="correo">
+
+    <p class="plogin">Contraseña</p>
+    <input type="password" class="tlogin" id="password" name="password">
+
+    <button type="submit" class="login">Iniciar Sesión</button>
+  </div>
+</form>
+{% endblock %}
