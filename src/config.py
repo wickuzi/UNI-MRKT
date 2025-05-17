@@ -4,10 +4,10 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    MYSQL_HOST = 'shinkansen.proxy.rlwy.net'
+    MYSQL_HOST = 'localhost'
     MYSQL_USER='root'
-    MYSQL_PASSWORD='rjKwBkMpnLOpJWjEOkTniBqworHimTZX'
-    MYSQL_DB = 'railway'
+    MYSQL_PASSWORD='123'
+    MYSQL_DB = 'flask'
 
 
 config = {
