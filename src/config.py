@@ -4,7 +4,7 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    MYSQL_HOST = 'mysql://root:rjKwBkMpnLOpJWjEOkTniBqworHimTZX@shinkansen.proxy.rlwy.net:30015/railway'
+    MYSQL_HOST = 'shinkansen.proxy.rlwy.net'
     MYSQL_USER='root'
     MYSQL_PASSWORD='rjKwBkMpnLOpJWjEOkTniBqworHimTZX'
     MYSQL_DB = 'railway'
