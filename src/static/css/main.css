@@ -13,6 +13,61 @@ body {
   }
 
  .Logo {
-    max-width: 50px;
+    max-width: 70px;
     height: auto;
+  }
+
+  .logotexto{
+    padding-right: 138px;
+    font-size: 34px;
+    margin: 0;
+  }
+
+  .buscar{
+    background-color: #1a3890;
+    color: #ffffff;
+    border-color: #1a3890;
+    border-radius: 5px;
+    transition: 0.3s ease-in;
+  }
+
+  .buscar:hover{
+    background-color: #ffffff;
+    color: #1a3890;
+    border-color: #1a3890;
+    border-radius: 5px;
+  }
+
+  .login{
+     width: 30%;
+    padding: 10px;
+    font-size: 14px;
+    background-color: #1a3890;
+    color: #ffffff;
+    margin-top: 15px;
+    border-color: rgba(250, 235, 215, 0.836);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+  }
+
+  .login:hover {
+    color: black;
+    background-color: #ffffff;
+  }
+  
+  @media (max-width: 600px) {
+   .logotexto{
+    padding-right: 188px;
+    font-size: 34px;
+    margin: 0;
+  }
+
+    .Logo {
+    max-width: 70px;
+    height: auto;
+  }
+  
+    
+
   }

@@ -10,28 +10,27 @@
 {% block body %}
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <img src="static/img/R.png" alt="logo">
-    <a class="navbar-brand" href="#">-MRKT</a>
+    <img src="static/img/UNI-Nicaragua.jpg" class="Logo">
+    <h1 class="logotexto">-Markt</h1>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarScroll">
-      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px; padding-left: 167px;">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Perfil</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Link
+            Bonos UNI
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Bono Alimenticios</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Bonos monetarios</a></li>
           </ul>
         </li>
         <li class="nav-item">
@@ -39,12 +38,14 @@
         </li>
       </ul>
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input class="form-control me-2" type="search" placeholder="Libro de Calculo II" aria-label="Search"/>
+        <button class="buscar" type="submit">Buscar</button>
       </form>
     </div>
   </div>
 </nav>
 <h1>Hello, {{current_user.username}}</h1>
-<a href="{{ url_for('logout') }}">Cerrar Sesión</a>
+
+{% set logout_url = url_for('logout') %}
+        <button type="button" class="login" onclick="location.href='{{ logout_url }}'">Cerrar sesión</button>
 {% endblock %}
