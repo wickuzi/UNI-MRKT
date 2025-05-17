@@ -4,10 +4,10 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    MYSQL_HOST = 'localhost'
+    MYSQL_HOST = 'mysql.railway.internal'
     MYSQL_USER='root'
-    MYSQL_PASSWORD='123'
-    MYSQL_DB = 'flask'
+    MYSQL_PASSWORD='rjKwBkMpnLOpJWjEOkTniBqworHimTZX'
+    MYSQL_DB = 'railway'
 
 
 config = {
