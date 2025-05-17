@@ -14,10 +14,10 @@ app.config.from_object(config['development'])
 login_manager_app = LoginManager(app) 
 
 conn = mysql.connector.connect(
-    host=app.config['localhost'],
-    user=app.config['root'],
-    password=app.config['123'],
-    database=app.config['flask']
+    host=app.config['MYSQL_HOST'],
+    user=app.config['MYSQL_USER'],
+    password=app.config['MYSQL_PASSWORD'],
+    database=app.config['MYSQL_DB']
 )
 cursor = conn.cursor(buffered=True)
 
