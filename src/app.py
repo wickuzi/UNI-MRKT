@@ -15,6 +15,7 @@ login_manager_app = LoginManager(app)
 
 conn = mysql.connector.connect(
     host=app.config['MYSQL_HOST'],
+    port=3306,
     user=app.config['MYSQL_USER'],
     password=app.config['MYSQL_PASSWORD'],
     database=app.config['MYSQL_DB']
