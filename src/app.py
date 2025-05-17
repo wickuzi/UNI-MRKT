@@ -15,7 +15,6 @@ login_manager_app = LoginManager(app)
 
 conn = mysql.connector.connect(
     host=app.config['MYSQL_HOST'],
-    port=30015,
     user=app.config['MYSQL_USER'],
     password=app.config['MYSQL_PASSWORD'],
     database=app.config['MYSQL_DB']
@@ -111,5 +110,5 @@ if __name__ =='__main__':
     csrf.init_app(app)
     app.register_error_handler(401, status_401)
     app.register_error_handler(404, status_404)
-    app.run(host='0.0.0.0', port=10000)
+    app.run()
 
