@@ -1,6 +1,0 @@
-Flask
-Flask-Login
-Flask-WTF
-mysql-connector-python
-Werkzeug
-flask-session
