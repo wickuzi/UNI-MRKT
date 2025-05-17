@@ -10,12 +10,20 @@ from flask_wtf import CSRFProtect
 
 app = Flask(__name__)
 csrf=CSRFProtect()
-db = MySQL(app)
+app.config.from_object(config['development'])
 login_manager_app = LoginManager(app) 
+
+conn = mysql.connector.connect(
+    host=app.config['localhost'],
+    user=app.config['root'],
+    password=app.config['123'],
+    database=app.config['flask']
+)
+cursor = conn.cursor(buffered=True)
 
 @login_manager_app.user_loader
 def load_userr(id):
-    return ModelUser.get_by_id(db,id)
+    return ModelUser.get_by_id(conn,id)
 
 @app.route('/')
 def index():
@@ -34,7 +42,7 @@ def register():
             return redirect(url_for('register'))
 
         user = User(None, username, correo, password)
-        result = ModelUser.register(db, user)
+        result = ModelUser.register(conn, user)
 
         if result == "OK":
             flash('¡Registro exitoso! Ahora puedes iniciar sesión.')
@@ -59,7 +67,7 @@ def login():
             return redirect(url_for('login'))
 
         user = User(None, None, correo, password)
-        logged_user = ModelUser.login(db, user)
+        logged_user = ModelUser.login(conn, user)
 
         print(f"Usuario recuperado: {logged_user}")
 
@@ -88,6 +96,7 @@ def principal():
 @app.route('/logout')
 def logout():
     session.clear()
+    logout_user()
     return redirect(url_for('register'))
 
 def status_401(error):
@@ -98,7 +107,6 @@ def status_404(error):
 
 
 if __name__ =='__main__':
-    app.config.from_object(config['development'])
     csrf.init_app(app)
     app.register_error_handler(401, status_401)
     app.register_error_handler(404, status_404)
